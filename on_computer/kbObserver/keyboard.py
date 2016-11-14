@@ -4,9 +4,13 @@ import time
 class KeyBoard(object):
     '''
     on MAC 
-        68=>left, 66=>down, 67=>right, 65=>top
+        68=>left, 66=>down, 67=>right, 65=>up
 
     '''
+    LEFT = 68
+    DOWN = 66
+    RIGHT = 67
+    UP = 65
     def __init__(self):
     	self.c = 0
     	self.stdscr = curses.initscr()
@@ -21,13 +25,13 @@ class KeyBoard(object):
             curses.endwin()
             exit()
         if self.c != -1:
-            if self.c == 68:
+            if self.c == LEFT:
                 key_in = 'left'
-            elif self.c == 65:
-                key_in = 'top'
-            elif self.c == 67:
+            elif self.c == UP:
+                key_in = 'up'
+            elif self.c == RIGHT:
                 key_in = 'right'
-            elif self.c == 66:
+            elif self.c == DOWN:
                 key_in = 'down'
             else:
                 key_in = None
