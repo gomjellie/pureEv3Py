@@ -15,7 +15,11 @@ class KeyBoard(object):
     	self.stdscr.nodelay(1)
     	
     def get_ch(self):
-        self.c = self.stdscr.getch()
+        try:
+            self.c = self.stdscr.getch()
+        except KeyboardInterrupt:
+            curses.endwin()
+            exit()
         if self.c != -1:
             if self.c == 68:
                 key_in = 'left'
@@ -32,4 +36,5 @@ class KeyBoard(object):
 #            self.stdscr.move(0, 0)
             return key_in
         return None
- 
+
+
