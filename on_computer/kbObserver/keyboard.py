@@ -25,19 +25,20 @@ class KeyBoard(object):
             curses.endwin()
             exit()
         if self.c != -1:
-            if self.c == LEFT:
+            if self.c == KeyBoard.LEFT:
                 key_in = 'left'
-            elif self.c == UP:
+            elif self.c == KeyBoard.UP:
                 key_in = 'up'
-            elif self.c == RIGHT:
+            elif self.c == KeyBoard.RIGHT:
                 key_in = 'right'
-            elif self.c == DOWN:
+            elif self.c == KeyBoard.DOWN:
                 key_in = 'down'
             else:
                 key_in = None
-#            self.stdscr.addstr(' ' + str(self.c) + ' ' + key_in)
-#            self.stdscr.refresh()
-#            self.stdscr.move(0, 0)
+            if self.c is not None and key_in is not None:
+                self.stdscr.addstr(' ' + str(self.c) + ' ' + key_in)
+                self.stdscr.refresh()
+                self.stdscr.move(0, 0)
             return key_in
         return None
 
